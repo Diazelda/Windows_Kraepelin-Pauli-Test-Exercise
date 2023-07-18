@@ -20,7 +20,17 @@ This is a simple program designed to help you train your addition skills for Kra
 
    ```shell
    git clone https://github.com/Diazelda/Windows_Kraepelin-Pauli-Test-Exercise.git
+
+2. Navigate to the project directory:
+   ```shell
+   cd Addition-Skills-Training
+
+3. Run the program:
+   ```shell
+   python main.py
    
+4. Follow the on-screen instructions and provide your answers to the addition problems.
+
 ## Usage
 
 When prompted, enter the correct answer to the addition problem.
