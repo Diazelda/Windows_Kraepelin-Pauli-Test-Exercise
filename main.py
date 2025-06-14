@@ -1,6 +1,25 @@
 import random
 import time
-import msvcrt
+import sys
+
+try:
+    import msvcrt
+
+    def get_char():
+        return msvcrt.getch().decode()
+except ImportError:  # Unix-like systems
+    import tty
+    import termios
+
+    def get_char():
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(fd)
+            ch = sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return ch
 
 def generate_question():
     num1 = random.randint(0, 9)
@@ -9,12 +28,11 @@ def generate_question():
     return num1, num2, result
 
 def get_user_input():
-    user_input = ''
-    while msvcrt.kbhit():
-        char = msvcrt.getch()
+    """Read a single digit from the user."""
+    while True:
+        char = get_char()
         if char.isdigit():
-            user_input += char.decode()
-    return user_input
+            return char
 
 def main():
     score = 0
@@ -24,12 +42,7 @@ def main():
         print(f"What is {num1} + {num2}?")
 
         start_time = time.time()
-
-        while True:
-            user_input = get_user_input()
-            if user_input:
-                break
-
+        user_input = get_user_input()
         end_time = time.time()
 
         elapsed_time = end_time - start_time
