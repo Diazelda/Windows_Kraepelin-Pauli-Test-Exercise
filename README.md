@@ -1,4 +1,4 @@
-# [WINDOWS] Kraepelin-Pauli Test Exercise
+# Kraepelin-Pauli Test Exercise
 
 This is a simple program designed to help you train your addition skills for Kraepelin or Pauli test. It generates random addition problems and prompts you for the correct answer. The program provides immediate feedback on your responses and keeps track of your score.
 
@@ -12,7 +12,6 @@ This is a simple program designed to help you train your addition skills for Kra
 ## Prerequisites
 
 - Python 3.x
-- Windows OS
 
 ## Getting Started
 
@@ -23,7 +22,7 @@ This is a simple program designed to help you train your addition skills for Kra
 
 2. Navigate to the project directory:
    ```shell
-   cd Addition-Skills-Training
+   cd Windows_Kraepelin-Pauli-Test-Exercise
 
 3. Run the program:
    ```shell

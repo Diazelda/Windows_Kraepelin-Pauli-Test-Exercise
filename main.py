@@ -1,6 +1,7 @@
+"""Kraepelin/Pauli test training application."""
+
 import random
 import time
-import msvcrt
 
 def generate_question():
     num1 = random.randint(0, 9)
@@ -9,12 +10,8 @@ def generate_question():
     return num1, num2, result
 
 def get_user_input():
-    user_input = ''
-    while msvcrt.kbhit():
-        char = msvcrt.getch()
-        if char.isdigit():
-            user_input += char.decode()
-    return user_input
+    """Return the digits entered by the user."""
+    return input().strip()
 
 def main():
     score = 0
@@ -24,12 +21,7 @@ def main():
         print(f"What is {num1} + {num2}?")
 
         start_time = time.time()
-
-        while True:
-            user_input = get_user_input()
-            if user_input:
-                break
-
+        user_input = get_user_input()
         end_time = time.time()
 
         elapsed_time = end_time - start_time
